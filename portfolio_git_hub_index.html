@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mon Portfolio – Emmanuel DAVID </title>
+  <meta name="description" content="Portfolio de Votre Nom : projets, compétences, expériences et contact." />
+  <style>
+    :root{
+      --bg:#0f172a; /* slate-900 */
+      --card:#111827ee; /* gray-900 */
+      --text:#e5e7eb; /* gray-200 */
+      --muted:#94a3b8; /* slate-400 */
+      --accent:#38bdf8; /* sky-400 */
+      --chip:#334155; /* slate-700 */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:linear-gradient(180deg,#0b1022,#0f172a 30%,#0b1022 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1000px;margin:0 auto;padding:28px}
+    header{display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between;margin-bottom:24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--accent)}
+    .title{line-height:1.1;margin:0;font-size:1.6rem}
+    .subtitle{margin:2px 0 0;color:var(--muted);font-size:.95rem}
+    nav{display:flex;gap:14px;flex-wrap:wrap}
+    nav a{padding:8px 12px;border-radius:999px;background:var(--chip)}
+
+    .hero{border:1px solid #1f2937;border-radius:20px;background:radial-gradient(1200px 300px at 10% -10%, #1f2937, transparent), var(--card);padding:28px;margin-bottom:24px;box-shadow:0 10px 30px #0007}
+    .hero h1{margin:0 0 8px;font-size:2rem}
+    .hero p{margin:0;color:var(--muted)}
+    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid #1f2937;background:#0ea5e9;color:white;font-weight:600}
+    .btn.secondary{background:transparent;color:var(--text)}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .card{grid-column:span 12;border:1px solid #1f2937;border-radius:18px;padding:18px;background-color:var(--card)}
+    .card h3{margin:0 0 10px;font-size:1.2rem}
+    .card p{margin:0;color:var(--muted)}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tag{font-size:.85rem;padding:6px 10px;border-radius:999px;background:var(--chip)}
+
+    .projects .project{display:flex;flex-direction:column;gap:12px}
+    .project img{width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid #1f2937}
+
+    .skills .list{display:flex;flex-wrap:wrap;gap:10px}
+    .skills .list .tag{background:#0b3b4d}
+
+    .experience .item{display:flex;gap:12px;align-items:flex-start}
+    .badge{min-width:44px;height:44px;border-radius:10px;background:#1e293b;display:grid;place-items:center;font-weight:700;border:1px solid #1f2937}
+
+    footer{margin:36px 0 12px;color:var(--muted);text-align:center;font-size:.9rem}
+
+    @media(min-width:720px){
+      .card.span-6{grid-column:span 6}
+      .card.span-8{grid-column:span 8}
+      .card.span-4{grid-column:span 4}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/000000?v=4" alt="Votre photo" />
+        <div>
+          <h1 class="title">Emmanuel DAVID</h1>
+          <p class="subtitle">Ingénieur·e / Enseignant·e — Électronique & Embarqué</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#projets">Projets</a>
+        <a href="#competences">Compétences</a>
+        <a href="#experience">Expérience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Construire, mesurer, expliquer.</h1>
+      <p>Je conçois des systèmes embarqués (RP2040 / Pico / CAN / LiDAR) et j'enseigne l'électronique appliquée. Voici une sélection de projets et de ressources.</p>
+      <div class="cta">
+        <a class="btn" href="#projets">Voir mes projets</a>
+        <a class="btn secondary" href="https://github.com/" target="_blank" rel="noreferrer">Mon GitHub</a>
+      </div>
+    </section>
+
+    <section id="projets" class="projects grid">
+      <article class="card span-8 project">
+        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Projet 1" />
+        <div>
+          <h3>Robot mobile – évitement d'obstacles par LiDAR</h3>
+          <p>Traitement temps réel sur Raspberry Pico / Pico W : binning 360°, filtrage, UART DMA, dashboard MQTT.</p>
+          <div class="tags">
+            <span class="tag">C / Pico SDK</span><span class="tag">UART</span><span class="tag">LiDAR A2M12</span><span class="tag">MQTT</span>
+          </div>
+        </div>
+      </article>
+      <article class="card span-4">
+        <h3>Lib CAN MCP2515</h3>
+        <p>Driver SPI avec interruptions RXB0/RXB1, masques & filtres, exemple CANopen esclave.</p>
+        <div class="tags"><span class="tag">SPI</span><span class="tag">CAN</span><span class="tag">CANopen</span></div>
+      </article>
+      <article class="card span-4">
+        <h3>TP Master — RP2040</h3>
+        <p>Jeu de TPs : timers, PIO Neopixel, double cœur, ADC calibré, tests unitaires Unity.</p>
+        <div class="tags"><span class="tag">Pédagogie</span><span class="tag">C</span><span class="tag">PIO</span></div>
+      </article>
+      <article class="card span-8">
+        <h3>Dashboard IoT Node‑RED</h3>
+        <p>Supervision capteurs (HC‑SR04, BNO055, HX711) avec Mosquitto, flux Node‑RED, CSV→JSON.</p>
+        <div class="tags"><span class="tag">Node‑RED</span><span class="tag">Mosquitto</span><span class="tag">Raspberry Pi</span></div>
+      </article>
+    </section>
+
+    <section id="competences" class="skills card" style="margin-top:18px">
+      <h3>Compétences</h3>
+      <div class="list">
+        <span class="tag">C (Pico SDK)</span><span class="tag">CMake</span><span class="tag">PIO</span>
+        <span class="tag">UART/SPI/I²C</span><span class="tag">CAN MCP2515</span><span class="tag">MQTT</span>
+        <span class="tag">Git / GitHub</span><span class="tag">Linux</span><span class="tag">Docker</span>
+      </div>
+    </section>
+
+    <section id="experience" class="experience card" style="margin-top:18px">
+      <h3>Expérience</h3>
+      <div class="item">
+        <div class="badge">2025</div>
+        <div>
+          <strong>Enseignant·e Master — IUT</strong>
+          <p class="muted">Conception de cours (LaTeX, TikZ), TPs Pico, évaluation (AMC), encadrement projets.</p>
+        </div>
+      </div>
+      <div class="item" style="margin-top:12px">
+        <div class="badge">2023</div>
+        <div>
+          <strong>Ingénieur·e embarqué·e</strong>
+          <p class="muted">Développement drivers (CAN, SPI), optimisation mémoire, DMA, double cœur.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="card" style="margin-top:18px">
+      <h3>Contact</h3>
+      <p>✉️ <a href="mailto:votre.email@example.com">votre.email@example.com</a> · 💼 <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></p>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Votre Nom · Hébergé sur GitHub Pages
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
